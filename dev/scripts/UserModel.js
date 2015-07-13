@@ -1,3 +1,3 @@
-function UserModel () {
+function UserModel (data) {
   this.model = data;
 }
