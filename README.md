@@ -12,5 +12,5 @@ Use $ **npm install** with no args, and this command will Install the dependenci
 
 Run gulp commands:
 $ **gulp build** - build files from **dev** to **dist**;
-compile css, concatenate all css and js file, make sourcemaps and minify css and js files; 
+compile css, concatenate all css and js file, make sourcemaps and minify css and js files; also checked js code with jsHint;
 $ **gulp serve** - run the watchers and at first serve project to local server _localhost:8080_ and then connect to the tunnel server, setup the tunnel, and tell you what url to use for testing. 

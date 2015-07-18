@@ -9,11 +9,11 @@ var BookView = (function() {
         this.tmpl = tmpl;
         this.collection = BookCollection();
         this.el = $(this.render(this.collection));
-    }
+    };
 })();
 
 BookView.prototype.render = function(contacts) {
     return this.tmpl({
         contacts: contacts
     });
-}
+};

@@ -4,7 +4,7 @@ function BookCollection() {
         if (user.id) {
             this.data.push(new UserModel(user));
         } else {
-            throw 'Error: user should have "id" property'
+            throw 'Error: user should have "id" property';
         }
     }, this);
     return this.data;
@@ -45,4 +45,4 @@ var users = [{
     "age": 35,
     "name": "Taylor Ford",
     "gender": "female"
-}]
+}];
