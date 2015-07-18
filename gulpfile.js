@@ -25,10 +25,10 @@ gulp.task('sassCompile', function() {
         .pipe(sourcemaps.write())
         .pipe(concat('styles.css'))
         .pipe(gulp.dest(targetCssDir))
+        .pipe(minifyCss())
         .pipe(rename({
           suffix: '.min'
         }))
-        .pipe(minifyCss())
         .pipe(gulp.dest(targetCssDir));
 });
 
@@ -65,4 +65,5 @@ gulp.task('watch', function() {
 });
 
 
-gulp.task('default', ['watch', 'sassCompile', 'scripts', 'connect', 'localtunnel']);
+gulp.task('build', ['sassCompile', 'scripts']);
+gulp.task('serve', ['watch', 'connect', 'localtunnel']);
