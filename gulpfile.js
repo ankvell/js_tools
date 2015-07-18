@@ -5,6 +5,9 @@ var sourcemaps = require('gulp-sourcemaps');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var connect = require('gulp-connect');
+var shell = require('gulp-shell');
+
 
 // Directories
 var sassDir = 'dev/styles';
@@ -43,6 +46,18 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest(targetJsDir));
 });
 
+gulp.task('connect', function() {
+  connect.server({
+    root: 'dist',
+    port: 8080
+  })
+});
+
+gulp.task('localtunnel', shell.task([
+  'npm install -g localtunnel ',
+  'lt --port 8080 --subdomain ankvell'
+]));
+
 
 gulp.task('watch', function() {
   gulp.watch(sassDir + '/*.scss', ['sassCompile'])
@@ -50,4 +65,4 @@ gulp.task('watch', function() {
 });
 
 
-gulp.task('default', ['watch', 'sassCompile', 'scripts']);
+gulp.task('default', ['watch', 'sassCompile', 'scripts', 'connect', 'localtunnel']);
